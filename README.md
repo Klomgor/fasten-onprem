@@ -11,14 +11,14 @@
 [![Request Providers](https://img.shields.io/static/v1?label=request+providers&message=form&color=orange&style=flat-square)](https://forms.gle/4oU8372y4KyM8DbdA)
 [![Join Newsletter](https://img.shields.io/static/v1?label=join&message=mailing+list&color=blue&style=flat-square)](https://forms.gle/SNsYX9BNMXB6TuTw6)
 
-**Fasten securely connects your healthcare providers together, creating a personal health record that never leaves your hands**
+**Fasten lets you create a secure, private personal health record that never leaves your hands**
 
 > [!IMPORTANT]  
-> **This repository contains the open-source, self-hosted [Personal Health Record](https://en.wikipedia.org/wiki/Personal_health_record) app. It is maintained by the community and is not the same product as [Fasten Connect](https://www.fastenhealth.com/).**
+> **This repository contains the open-source, self-hosted [Personal Health Record](https://en.wikipedia.org/wiki/Personal_health_record) app. It is maintained by the community and is not the same product as [Fasten Connect](https://www.fastenhealth.com/). Fasten OnPrem is a PHR to manage and view patient's medical data, it does not integrate with EHRs directly.**
 >
-> Fasten Connect is our fully-managed, enterprise-grade API platform designed for organizations who need seamless, scalable access to patient-authorized medical records (e.g., for clinical trials, patient recruitment, or research). If you're looking for business support, SLAs, and out-of-the-box integrations, [click here to learn more about Fasten Connect](https://www.fastenhealth.com/).
+> Fasten Connect is our fully-managed, enterprise-grade API platform designed for organizations who need seamless, scalable access to patient-authorized medical records (e.g., for clinical trials, patient recruitment, or research). If you're looking for business support, SLAs, and out-of-the-box **integrations with over 50,000+ healthcare insitutions**, [click here to learn more about Fasten Connect](https://www.fastenhealth.com/).
 >
-> While we welcome contributions and discussion here, **this open-source repo does not include any of the hosted infrastructure, support services, or commercial features available through Fasten Connect**. Fasten Onprem is no longer able to import data from healthcare providers directly. You can only use this application to manually enter data, or upload FHIR Bundles that have been exported though other means.
+> While we welcome contributions and discussion here, **this open-source repo does not include any of the hosted infrastructure, support services, or commercial features available through Fasten Connect**. Fasten Onprem is not able to import data from healthcare providers directly. You can only use this application to manually enter data, or upload FHIR Bundles that have been exported though other means.
 
 <p align="center">
   <br/>
@@ -53,12 +53,11 @@ I wanted a single (private) location to store our medical records, and I just co
 
 - self-hosted/offline - this is my medical history, I'm not willing to give it to some random multi-national corporation to data-mine and sell
 - It should aggregate my data from multiple healthcare providers (insurance companies, hospital networks, clinics, labs) across multiple industries (vision, dental, medical) -- all in one dashboard
-- automatic - it should pull my EMR (electronic medical record) directly from my insurance provider/clinic/hospital network - I dont want to scan/OCR physical documents (unless I have to)
 - open source - the code should be available for contributions & auditing
 
 So, I built it.
 
-**Fasten is an open-source, self-hosted, personal/family electronic medical record aggregator, designed to integrate with 1000's of insurances/hospitals/clinics**
+**Fasten is an open-source, self-hosted, personal/family electronic medical record viewer**
 
 # Features
 
@@ -67,19 +66,11 @@ It's pretty basic right now, but it's designed with a easily extensible core aro
 - Self-hosted
 - Designed for families, not Clinics (unlike OpenEMR and other popular EMR systems)
 - Supports the Medical industry's (semi-standard) FHIR protocol
-- Uses OAuth2 (Smart-on-FHIR) authentication (no passwords necessary)
-- Uses OAuth's `offline_access` scope (where possible) to automatically pull changes/updates
 - (Future) Multi-user support for household/family use
 - Condition specific user Dashboards & tracking for diagnostic tests
 - (Future) Vaccination & condition specific recommendations using NIH/WHO clinical care guidelines (HEDIS/CQL)
 - (Future) ChatGPT-style interface to query your own medical history (offline)
 - (Future) Integration with smart-devices & wearables
-
-# Getting Started
-
-There are 2 flavors of Fasten:
-- `ghcr.io/fastenhealth/fasten-onprem:sandbox` - This version only allows you to connect to a handful of Healthcare providers, using Sandbox accounts that are meant for testing, and contain synthetic (fake) data to give you an idea what Fasten will look like, without requiring personal medical information.
-- `ghcr.io/fastenhealth/fasten-onprem:main` - This version allows you to connect to 25,000+ different Healthcare providers, using your existing accounts. It will allow you to connect and retrieve your personal electronic medical record and store it within Fasten. **Be careful, this is YOUR health data**
 
 ---
 
@@ -90,7 +81,6 @@ There are 2 flavors of Fasten:
 First, if you don't have Docker installed on your computer, get Docker by following this [install guide](https://docs.docker.com/get-docker/).
 
 Next, run the following commands from the Windows command line or Mac/Linux terminal in order to download and start the Fasten docker container.
-
 
 
 ### 🚀 Launch
@@ -240,12 +230,6 @@ It can be as simple as
 - **Username:** `testuser`
 - **Password:** `testuser`
 
-
-## Usage
-
-If you're using the `sandbox` version of Fasten, you'll only be able to connect to Sources using test credentials
-
-https://docs.fastenhealth.com/getting-started/sandbox.html#connecting-a-new-source
 
 ## Using with multiple people
 
